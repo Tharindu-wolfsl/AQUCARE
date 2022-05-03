@@ -2,6 +2,7 @@ package com.example.aqucare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,10 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button analyzeBtn;
+    private Button analyzeBtn,actionBtn;
     double ph=4.0;
     double temp=40.0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         analyzeBtn=(Button) findViewById(R.id.analyze_btn);
-
+        actionBtn=(Button) findViewById(R.id.action);
 
         setOnClickAnalyze();
-
-
+        actionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),action.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Analyzing...", Toast.LENGTH_LONG).show();
                 analyzeBtn.setClickable(false);
                 analyzeBtn.setVisibility(View.GONE);
+                actionBtn.setVisibility(View.VISIBLE);
 
                 if(ph>7.0 && temp>20){
                     View v=li0.inflate(R.layout.state0,linear,true);
@@ -91,10 +99,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
     }
-
-
-
 
 
 }

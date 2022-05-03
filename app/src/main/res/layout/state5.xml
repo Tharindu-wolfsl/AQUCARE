@@ -54,21 +54,5 @@
         android:gravity="center_horizontal"
         android:text="Temperature is low, you need to increase it!"/>
 
-    <Button
-        android:id="@+id/action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result"
-        android:backgroundTint="@color/teal_200"
-        android:text="ACTION"
-        android:textSize="18sp"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:layout_marginBottom="10dp"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
